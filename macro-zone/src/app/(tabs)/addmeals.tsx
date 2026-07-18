@@ -10,6 +10,7 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
+import * as Haptics from 'expo-haptics';
 
 export default function AddMealScreen() {
   const [name, setName] = useState('');
@@ -38,6 +39,7 @@ export default function AddMealScreen() {
     setCarbs('');
     setFat('');
 
+    Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
     Alert.alert('Success', 'Meal added successfully!');
 
     router.push('/');
