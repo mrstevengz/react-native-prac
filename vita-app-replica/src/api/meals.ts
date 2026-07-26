@@ -9,9 +9,13 @@ const api: AxiosInstance = axios.create({
   },
 });
 
-export async function getRandomMeal(): Promise<Meal | undefined> {
+type MealApiResponse = {
+  meals: Meal[];
+};
+
+export async function getRandomMeal(): Promise<MealApiResponse | undefined> {
   try {
-    const res = await api.get<Meal>("/random.php");
+    const res = await api.get<MealApiResponse>("/random.php");
     return res.data;
   } catch (error) {
     console.error("Error fetching the meal: ", error);

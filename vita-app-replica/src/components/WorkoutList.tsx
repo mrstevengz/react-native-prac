@@ -27,25 +27,30 @@ const colorForKey = (key: string) => {
 
 export default function WorkoutCard({ workoutList }: WorkoutListProps) {
   return (
-    <View className="px-4 pt-2 pb-8 gap-3">
-      <Text className="text-white/90 text-[26px] font-extrabold tracking-tight leading-[30px] mt-3 capitalize text-center">
+    <View className="px-5 pt-3 pb-10 gap-4">
+      <Text className="text-white text-[28px] font-extrabold tracking-tight leading-[32px] mt-3 mb-1 capitalize text-center">
         Workout List
       </Text>
       {workoutList?.map((workout) => (
         <View
           key={workout.name}
-          className="rounded-[32px] p-6"
+          className="rounded-[28px] px-6 py-7 overflow-hidden"
           style={{
             backgroundColor: colorForKey(workout.muscle ?? workout.name),
+            shadowColor: colorForKey(workout.muscle ?? workout.name),
+            shadowOpacity: 0.4,
+            shadowRadius: 24,
+            shadowOffset: { width: 0, height: 14 },
+            elevation: 10,
           }}
         >
-          <Text className="text-white/70 text-xs font-bold uppercase tracking-widest">
+          <Text className="text-white/55 text-[11px] font-bold uppercase tracking-[0.22em]">
             {workout.muscle}
           </Text>
-          <Text className="text-white text-[26px] font-extrabold tracking-tight leading-[30px] mt-3 capitalize">
+          <Text className="text-white text-[30px] font-extrabold tracking-tight leading-[34px] mt-2 capitalize">
             {workout.name}
           </Text>
-          <Text className="text-white/60 text-sm font-semibold uppercase tracking-wide mt-4">
+          <Text className="text-white/50 text-[13px] font-semibold uppercase tracking-[0.16em] mt-5">
             {workout.difficulty}
           </Text>
         </View>
